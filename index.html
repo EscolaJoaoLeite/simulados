@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>1º SIMULADO ENEM - 2026</title>
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+/* =========================
+   BODY
+========================= */
+
+body{
+
+    font-family:Arial, sans-serif;
+    background:#f1f3f4;
+    color:#333;
+
+    user-select:none;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+     padding-bottom:70px;
+
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+
+    background:#043A06;
+    color:white;
+    text-align:center;
+    padding:25px;
+
+}
+
+header h1{
+
+    font-size:38px;
+
+}
+
+header p{
+
+    margin-top:10px;
+    font-size:18px;
+
+}
+
+/* =========================
+   TIMER
+========================= */
+
+#timer{
+
+    position:fixed;
+
+    top:15px;
+    right:20px;
+
+    background:#d93025;
+    color:white;
+
+    padding:14px 24px;
+
+    border-radius:14px;
+
+    font-size:28px;
+    font-weight:bold;
+
+    z-index:999999;
+
+    box-shadow:0 4px 10px rgba(0,0,0,0.3);
+
+}
+
+/* =========================
+   MENU
+========================= */
+
+.tabs{
+
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+
+    background:#34495e;
+
+}
+
+.tab-btn{
+
+    padding:15px 25px;
+
+    cursor:pointer;
+
+    color:white;
+
+    border:none;
+    background:none;
+
+    font-size:16px;
+
+    transition:0.3s;
+
+}
+
+.tab-btn:hover{
+
+    background:#1abc9c;
+
+}
+
+.tab-btn.active{
+
+    background:#1abc9c;
+
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container{
+
+    display:none;
+    padding:30px;
+
+}
+
+.container.active{
+
+    display:block;
+
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card{
+
+    background:white;
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:30px;
+
+    border-radius:14px;
+
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+
+}
+
+/* =========================
+   BOTÃO
+========================= */
+
+.iniciar{
+
+    background:#27ae60;
+    color:white;
+
+    border:none;
+
+    padding:18px 35px;
+
+    font-size:22px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+}
+
+.iniciar:hover{
+
+    background:#1e8449;
+
+}
+
+/* =========================
+   IFRAME
+========================= */
+
+iframe{
+
+    width:100%;
+    height:3500px;
+
+    border:none;
+
+    user-select:none;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+
+}
+
+/* =========================
+   LISTAS
+========================= */
+
+ul{
+
+    margin-top:20px;
+    padding-left:25px;
+
+}
+
+li{
+
+    margin-bottom:12px;
+    line-height:1.7;
+
+}
+
+/* =========================
+   ALERTA
+========================= */
+
+.alerta{
+
+    background:#fff3cd;
+
+    color:#856404;
+
+    padding:15px;
+
+    border-radius:10px;
+
+    margin-top:20px;
+
+    font-weight:bold;
+
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+
+    background:#043A06;
+    color:white;
+
+    text-align:center;
+
+    padding:15px;
+
+    position:fixed;
+
+    bottom:0;
+    left:0;
+
+    width:100%;
+
+    z-index:9999;
+
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media(max-width:768px){
+
+    header h1{
+
+        font-size:26px;
+
+    }
+
+    #timer{
+
+        font-size:20px;
+        padding:10px 18px;
+
+    }
+
+    .tab-btn{
+
+        width:100%;
+
+        border-bottom:1px solid rgba(255,255,255,0.1);
+
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- =========================
+     TOPO
+========================= -->
+
+<header>
+
+    <h1>1º SIMULADO ENEM - 2026</h1>
+
+    <p>
+        Escola Estadual Dr. João Leite de Barros
+    </p>
+
+</header>
+
+<!-- =========================
+     TIMER
+========================= -->
+
+<div id="timer">
+
+    02:30:00
+
+</div>
+
+<!-- =========================
+     MENU
+========================= -->
+
+<div class="tabs">
+
+    <button class="tab-btn active"
+    onclick="trocarAba('inicio')">
+
+        Início
+
+    </button>
+
+    <button class="tab-btn"
+    onclick="trocarAba('sobre')">
+
+        Sobre o Simulado
+
+    </button>
+
+    <button class="tab-btn"
+    onclick="trocarAba('dicas')">
+
+        Dicas ENEM
+
+    </button>
+
+    <button class="tab-btn"
+    onclick="trocarAba('prova')">
+
+        Prova
+
+    </button>
+
+</div>
+
+<!-- =========================
+     INÍCIO
+========================= -->
+
+<div id="inicio" class="container active">
+
+    <div class="card">
+
+        <h2>
+            Bem-vindo(a) ao 1º Simulado ENEM 2026
+        </h2>
+
+        <br>
+
+        <p>
+
+            Este ambiente foi preparado para proporcionar uma experiência semelhante ao ENEM.
+
+        </p>
+
+        <div class="alerta">
+
+            ⚠️ O cronômetro iniciará somente quando clicar em "INICIAR SIMULADO".
+
+        </div>
+
+        <br>
+
+        <ul>
+
+            <li>⏱️ Tempo total: 2h30min</li>
+
+            <li>📚 Questões padrão ENEM</li>
+
+            <li>🚫 Copiar e colar bloqueados</li>
+
+            <li>⚠️ Troca de aba monitorada</li>
+
+            <li>🧠 Mantenha foco e atenção</li>
+
+        </ul>
+
+        <br><br>
+
+        <button class="iniciar"
+        onclick="iniciarSimulado()">
+
+            INICIAR SIMULADO
+
+        </button>
+
+    </div>
+
+</div>
+
+<!-- =========================
+     SOBRE
+========================= -->
+
+<div id="sobre" class="container">
+
+    <div class="card">
+
+        <h2>
+            📘 Sobre o Simulado
+        </h2>
+
+        <br>
+
+        <p>
+
+            O 1º Simulado ENEM 2026 foi desenvolvido para auxiliar os estudantes dos 3º anos da nossa escola na preparação para o Exame Nacional do Ensino Médio.
+
+        </p>
+
+        <br>
+
+        <ul>
+
+            <li>✔ Gestão do tempo</li>
+
+            <li>✔ Estratégias de resolução</li>
+
+            <li>✔ Interpretação textual</li>
+
+            <li>✔ Controle emocional</li>
+
+            <li>✔ Organização durante a prova</li>
+
+        </ul>
+
+    </div>
+
+</div>
+
+<!-- =========================
+     DICAS
+========================= -->
+
+<div id="dicas" class="container">
+
+    <div class="card">
+
+        <h2>
+            🎯 Dicas para o ENEM
+        </h2>
+
+        <br>
+
+        <ul>
+
+            <li> Leia primeiro o comando da questão</li>
+
+            <li> Não perca muito tempo em uma questão</li>
+
+            <li> Elimine alternativas incorretas</li>
+
+            <li> Destaque palavras-chave</li>
+
+            <li> Mantenha a calma</li>
+
+            <li> Revise antes de finalizar</li>
+
+        </ul>
+
+    </div>
+
+</div>
+
+<!-- =========================
+     PROVA
+========================= -->
+
+<div id="prova" class="container">
+
+    <div class="card">
+
+        <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLSfM1VNCeTJAwreUSK_IzMm35ZFtp2RZzy3qwuFN_MfsiHx31g/viewform?embedded=true">
+        </iframe>
+
+    </div>
+
+</div>
+
+<!-- =========================
+     FINAL
+========================= -->
+
+<div id="fim" class="container">
+
+    <div class="card">
+
+        <h1 style="color:#d93025;">
+
+            ⏰ Tempo Encerrado
+
+        </h1>
+
+        <br>
+
+        <p>
+
+            O tempo do simulado foi encerrado.
+
+        </p>
+
+    </div>
+
+</div>
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    Escola Estadual Dr. João Leite de Barros | Simulado ENEM 2026
+
+</footer>
+
+<!-- =========================
+     SCRIPT
+========================= -->
+
+<script>
+
+/* =========================
+   TROCAR ABA
+========================= */
+
+function trocarAba(id){
+
+    document.querySelectorAll('.container')
+    .forEach(c => c.classList.remove('active'));
+
+    document.querySelectorAll('.tab-btn')
+    .forEach(b => b.classList.remove('active'));
+
+    document.getElementById(id)
+    .classList.add('active');
+
+}
+
+/* =========================
+   CRONÔMETRO
+========================= */
+
+let tempo = 2 * 60 * 60 + 30 * 60;
+
+let iniciado = false;
+
+let contador;
+
+function iniciarSimulado(){
+
+    if(iniciado) return;
+
+    iniciado = true;
+
+    trocarAba('prova');
+
+    contador = setInterval(function(){
+
+        let horas = Math.floor(tempo / 3600);
+
+        let minutos = Math.floor((tempo % 3600) / 60);
+
+        let segundos = tempo % 60;
+
+        document.getElementById("timer").innerHTML =
+
+            String(horas).padStart(2,'0') + ":" +
+            String(minutos).padStart(2,'0') + ":" +
+            String(segundos).padStart(2,'0');
+
+        tempo--;
+
+        if(tempo < 0){
+
+            clearInterval(contador);
+
+            trocarAba('fim');
+
+            alert("⏰ Tempo encerrado!");
+
+        }
+
+    },1000);
+
+}
+
+/* =========================
+   BLOQUEAR COPIAR/COLAR
+========================= */
+
+document.addEventListener('copy', function(e){
+
+    e.preventDefault();
+
+    alert("Copiar foi bloqueado!");
+
+});
+
+document.addEventListener('cut', function(e){
+
+    e.preventDefault();
+
+});
+
+document.addEventListener('paste', function(e){
+
+    e.preventDefault();
+
+    alert("Colar foi bloqueado!");
+
+});
+
+/* =========================
+   BLOQUEAR CLIQUE DIREITO
+========================= */
+
+document.addEventListener('contextmenu', function(e){
+
+    e.preventDefault();
+
+});
+
+/* =========================
+   BLOQUEAR TECLAS
+========================= */
+
+document.addEventListener('keydown', function(e){
+
+    if(e.ctrlKey &&
+      (
+       e.key === 'c' ||
+       e.key === 'v' ||
+       e.key === 'x' ||
+       e.key === 'u' ||
+       e.key === 's' ||
+       e.key === 'a' ||
+       e.key === 'p'
+      )){
+
+        e.preventDefault();
+
+    }
+
+    if(e.key === 'F12'){
+
+        e.preventDefault();
+
+    }
+
+});
+
+/* =========================
+   TROCA DE ABA
+========================= */
+
+document.addEventListener("visibilitychange", function(){
+
+    if(document.hidden){
+
+        alert("⚠️ Troca de aba detectada!");
+
+    }
+
+});
+
+/* =========================
+   TELA CHEIA
+========================= */
+
+function abrirTelaCheia(){
+
+    let doc = document.documentElement;
+
+    if(doc.requestFullscreen){
+
+        doc.requestFullscreen();
+
+    }
+
+}
+
+abrirTelaCheia();
+
+/* =========================
+   BLOQUEAR ARRASTAR
+========================= */
+
+document.addEventListener('dragstart', function(e){
+
+    e.preventDefault();
+
+});
+
+/* =========================
+   BLOQUEAR SELEÇÃO
+========================= */
+
+document.onselectstart = function(){
+
+    return false;
+
+};
+
+</script>
+
+</body>
+
+</html>
+
